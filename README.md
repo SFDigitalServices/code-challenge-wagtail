@@ -14,8 +14,11 @@ With a launch of the newest and shiniest Widget, yet, we need to get the news ou
 
 Time Limit: 90 minutes
 
-* Create a new Page Type within the Wagtail CMS. This page type should contain a Rich Text field in which we can enter text and formatting.
-* After creating a new Page Type, we will need to create a template in order for it to be rendered in a browser.
+Requirements:
+
+* Create a `WidgetDocumentation` within the Wagtail CMS. This page type should be able to handle a title, description, and body content as rich text.
+
+* Since the documentation page can become rather long, we'll want a table of contents at the top of the page that can deeplink to the different major sections/headings
 
 ## Development Environment
 
@@ -27,24 +30,38 @@ Time Limit: 90 minutes
 
 0. (Optional but recommended) Create a virtual environment and activate it
 
-    ```bash
+    ```sh
     python -m venv venv
     source ./venv/bin/activate
     ```
 
 1. Install dependencies
 
-    ```bash
+    ```sh
     pip install -r requirements.txt
     ```
 
-2. Get the server up and running
+2. Install browsers for Playwright
 
-    ```bash
+    ```sh
+    playwright install
+    ```
+
+3. Get the server up and running
+
+    ```sh
     python manage.py runserver
     ```
 
-3. Visit the site in a browser at `http://localhost:8000`
+4. Manually test the site in a browser at `http://localhost:8000`
+
+5. Test Playwright (automated testing framework) is working
+
+    ```sh
+    pytest
+    ```
+
+6. Assuming steps 4 and 5 worked for you, you're all set! 🎉
 
 ### Notes
 
@@ -55,3 +72,8 @@ Time Limit: 90 minutes
     ```shell
     deactivate
     ```
+
+## Reference Links
+
+* [Wagtail](https://docs.wagtail.org/en/stable/)
+* [Playwright](https://playwright.dev/python/)
